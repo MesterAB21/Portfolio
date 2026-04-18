@@ -23,7 +23,7 @@ export default function Footer() {
             color: "#5A5A6E",
           }}
         >
-          Built by Hamaidi Abderrahmane · 2025 · Next.js + Tailwind + Framer Motion
+          Built by Hamaidi Abderrahmane · 2026 · Next.js + Tailwind + Framer Motion
         </p>
 
         <button

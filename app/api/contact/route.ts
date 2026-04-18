@@ -6,7 +6,7 @@ const resend = apiKey ? new Resend(apiKey) : null;
 
 export async function POST(req: Request) {
   try {
-    const { name, email, project, message } = await req.json();
+    const { name, email, projectType, message } = await req.json();
 
     if (!name || !email || !message) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
@@ -16,19 +16,19 @@ export async function POST(req: Request) {
       console.log("Mock Contact Submission:");
       console.log("Name:", name);
       console.log("Email:", email);
-      console.log("Project:", project);
+      console.log("Project Type:", projectType);
       console.log("Message:", message);
       return NextResponse.json({ success: true, mock: true });
     }
 
     const { data, error } = await resend.emails.send({
       from: "Portfolio Contact <onboarding@resend.dev>",
-      to: ["your@email.com"], // Placeholder email per requirements
+      to: ["mesterab21@gmail.com"], // CHANGE THIS TO YOUR ACTUAL EMAIL ADDRESS
       subject: `New contact form submission from ${name}`,
       text: `
 Name: ${name}
 Email: ${email}
-Project: ${project}
+Project Type: ${projectType}
 Message: ${message}
       `,
     });

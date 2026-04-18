@@ -98,8 +98,9 @@ function Particles({ count }: { count: number }) {
         size={1}
         sizeAttenuation
         transparent
-        opacity={0.8}
+        opacity={0.45}
         depthWrite={false}
+        blending={THREE.AdditiveBlending}
       />
     </points>
   );
@@ -120,8 +121,8 @@ export default function ParticleField() {
       <Canvas
         camera={{ position: [0, 0, 6], fov: 60 }}
         gl={{ antialias: true, alpha: true }}
-        style={{ background: "transparent" }}
-        dpr={[1, 2]} // Optimize pixel ratio
+        style={{ background: "transparent", pointerEvents: "none" }}
+        dpr={[1, 2]}
       >
         <Particles count={isMobile ? 80 : 300} />
       </Canvas>

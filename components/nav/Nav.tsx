@@ -79,10 +79,15 @@ export default function Nav() {
           <a
             href="#top"
             onClick={(e) => handleScrollTo(e, "#top")}
-            className="font-syne font-bold text-[20px] text-accent tracking-wide"
+            className="font-syne font-bold text-[22px] text-accent tracking-tighter flex items-center gap-1 group transition-all duration-300"
             aria-label="Scroll to top"
           >
-            MK.
+            <span className="relative">
+              Mester
+              <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-accent group-hover:w-full transition-all duration-300"></span>
+            </span>
+            <span className="text-text-1">AB</span>
+            <div className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse shadow-[0_0_10px_rgba(127,119,221,0.8)]"></div>
           </a>
 
           {/* Desktop Links */}

@@ -8,14 +8,7 @@ const Skills = dynamic(() => import("@/components/sections/Skills"));
 const Contact = dynamic(() => import("@/components/sections/Contact"));
 const Footer = dynamic(() => import("@/components/sections/Footer"), { ssr: false });
 
-// AI Lab dynamic import with skeleton
-const AILab = dynamic(() => import("@/components/sections/AILab"), {
-  loading: () => (
-    <div className="w-full flex items-center justify-center p-32 bg-base min-h-[600px]">
-      <div className="w-[600px] h-[400px] border border-border-custom bg-surface rounded-xl animate-pulse" />
-    </div>
-  ),
-});
+
 
 export default function Home() {
   return (
@@ -25,7 +18,7 @@ export default function Home() {
       <About />
       <Projects />
       <Skills />
-      <AILab />
+     
       <Contact />
       <Footer />
     </main>

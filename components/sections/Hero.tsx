@@ -90,7 +90,15 @@ export default function Hero() {
 
   // 5C — Eyebrow, tagline, CTAs staggered fade up
   useEffect(() => {
-    const tl = gsap.timeline({ delay: 0.2 })
+    const targets = ['.hero-eyebrow', '.hero-tagline', '.hero-ctas', '.hero-scroll-indicator'];
+
+    const tl = gsap.timeline({
+      delay: 0.2,
+      onComplete: () => {
+        // Clear all inline styles so CSS takes over cleanly
+        gsap.set(targets, { clearProps: 'all' });
+      },
+    })
 
     tl.from('.hero-eyebrow', {
       y: 20, opacity: 0, duration: 0.5, ease: 'power2.out',
@@ -104,6 +112,12 @@ export default function Hero() {
       .from('.hero-scroll-indicator', {
         opacity: 0, duration: 0.5,
       }, '-=0.1')
+
+    return () => {
+      // Kill timeline and reset inline styles so re-mount starts clean
+      tl.kill();
+      gsap.set(targets, { clearProps: 'all' });
+    }
   }, [])
 
   const handleScrollToProjects = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -122,9 +136,12 @@ export default function Hero() {
       </div>
 
       {/* Hero Content */}
-      <div className="relative z-10 max-w-[800px] w-full px-[24px] flex flex-col items-center text-center">
+      <div className="relative z-20 max-w-[800px] w-full px-[24px] flex flex-col items-center text-center">
         {/* Eyebrow Label */}
-        <div className="hero-eyebrow font-mono text-[12px] text-[#5A5A6E] tracking-[0.12em] uppercase mb-[24px]">
+        <div 
+          className="hero-eyebrow font-mono text-[13px] text-text-1 tracking-[0.14em] uppercase mb-[24px]"
+          style={{ textShadow: "0 1px 12px rgba(0,0,0,0.8)" }}
+        >
           Available for work &middot; Algeria &middot; Remote-friendly
         </div>
 
@@ -172,26 +189,29 @@ export default function Hero() {
         </div>
 
         {/* Value Proposition */}
-        <p className="hero-tagline font-syne text-[18px] font-normal text-text-2 leading-[1.6] max-w-lg mx-auto mb-10">
+        <p 
+          className="hero-tagline font-syne text-[18px] font-normal text-text-1 leading-[1.6] max-w-lg mx-auto mb-10"
+          style={{ textShadow: "0 2px 16px rgba(0,0,0,0.8)" }}
+        >
           I build systems that work, scale, and think.
         </p>
 
         {/* CTA Buttons */}
-        <div className="hero-ctas flex items-center justify-center gap-4">
-          <a
-            href="#projects"
-            onClick={handleScrollToProjects}
-            className="opacity-100 inline-flex items-center justify-center px-[32px] py-[14px] bg-accent text-base rounded-[8px] font-syne font-semibold hover:bg-[#34AB7] transition-colors"
-          >
-            See my work ↓
-          </a>
+        <div className="hero-ctas flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href="/cv.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-[32px] py-[14px] border border-[#2A2A38] text-text-2 rounded-[8px] font-syne font-semibold hover:border-accent hover:text-text-1 transition-colors"
+            className="w-full sm:w-auto inline-flex items-center justify-center px-[32px] py-[16px] bg-accent text-[#0A0A0F] rounded-[10px] font-syne font-bold hover:bg-[#6B63C7] hover:scale-105 active:scale-95 transition-all shadow-[0_10px_20px_-5px_rgba(127,119,221,0.4)]"
           >
             Download CV
+          </a>
+          <a
+            href="#projects"
+            onClick={handleScrollToProjects}
+            className="w-full sm:w-auto inline-flex items-center justify-center px-[32px] py-[16px] border border-[#2A2A38] text-text-1 rounded-[10px] font-syne font-bold hover:bg-[#2A2A38] transition-all"
+          >
+            See projects ↓
           </a>
         </div>
       </div>

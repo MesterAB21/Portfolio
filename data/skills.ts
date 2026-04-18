@@ -12,34 +12,33 @@ export interface SkillTrack {
 export const skillTracks: SkillTrack[] = [
   {
     id: "track-1",
-    category: "Front-end",
-    color: "#7F77DD", // Accent Purple
+    category: "Backend",
+    color: "#E8E8F0", // Primary Text / Whiteish
     skills: [
-      { name: "React" },
-      { name: "Next.js 14" },
-      { name: "TypeScript" },
-      { name: "Tailwind CSS" },
-      { name: "Framer Motion" },
-      { name: "Three.js / R3F" },
-      { name: "Redux Toolkit" },
-      { name: "HTML5 / CSS3" },
-      { name: "GSAP" },
+      { name: "Express.js" },
+      { name: "FastAPI" },
+      { name: "Supabase" },
+      { name: "Node.js" },
+      { name: "Microservices Architecture" },
+      { name: "Django" },
+      { name: "REST APIs" },
+      { name: "PostgreSQL" },
+      { name: "MongoDB" },
     ],
   },
   {
     id: "track-2",
-    category: "Backend",
-    color: "#E8E8F0", // Primary Text / Whiteish
+    category: "Frontend",
+    color: "#7F77DD", // Accent Purple
     skills: [
-      { name: "Node.js" },
-      { name: "Express" },
-      { name: "Python" },
-      { name: "FastAPI" },
-      { name: "PostgreSQL" },
-      { name: "MongoDB" },
-      { name: "REST APIs" },
-      { name: "GraphQL" },
-      { name: "Redis" },
+      { name: "React.js" },
+      { name: "Next.js" },
+      { name: "Tailwind CSS" },
+      { name: "TypeScript" },
+      { name: "REST API Integration" },
+      { name: "Responsive Design" },
+      { name: "HTML5 / CSS3" },
+      { name: "JavaScript" },
     ],
   },
   {
@@ -47,15 +46,16 @@ export const skillTracks: SkillTrack[] = [
     category: "AI / Data",
     color: "#1D9E75", // AI Green
     skills: [
+      { name: "Machine Learning" },
+      { name: "Deep Learning" },
+      { name: "Scikit-learn" },
+      { name: "RAG" },
       { name: "PyTorch" },
-      { name: "TensorFlow" },
-      { name: "Scikit-Learn" },
-      { name: "Pandas" },
-      { name: "NumPy" },
-      { name: "Hugging Face" },
-      { name: "Data Visualization" },
-      { name: "Jupyter" },
       { name: "Vector Databases" },
+      { name: "TensorFlow" },
+      { name: "NumPy" },
+      { name: "Pandas" },
+      { name: "Data Visualization" },
     ],
   },
   {
@@ -63,15 +63,13 @@ export const skillTracks: SkillTrack[] = [
     category: "Automation / Agentic AI & DevOps",
     color: "#EF9F27", // Amber
     skills: [
-      { name: "n8n" },
+      { name: "Agentic AI" },
       { name: "LangChain" },
+      { name: "n8n" },
       { name: "OpenAI API" },
-      { name: "Agentic Workflows" },
       { name: "Docker" },
-      { name: "AWS" },
+      { name: "Cloud Deployment" },
       { name: "CI/CD" },
-      { name: "Linux" },
-      { name: "GitHub Actions" },
     ],
   },
 ];

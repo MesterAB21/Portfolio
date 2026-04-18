@@ -1,15 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import SectionDivider from "../ui/SectionDivider";
 import SectionLabel from "../ui/SectionLabel";
 import StatCard from "../ui/StatCard";
 
 export default function About() {
   const stats = [
-    { value: "3+", label: "Years coding", color: "#7F77DD" },
-    { value: "15+", label: "Projects built", color: "#EF9F27" },
-    { value: "5+", label: "ML models deployed", color: "#1D9E75" },
+    { value: "2+", label: "Year coding", color: "#7F77DD" },
+    { value: "10+", label: "Project", color: "#EF9F27" },
+    { value: "3+", label: "Model deployed", color: "#1D9E75" },
     { value: "3", label: "Domains mastered", color: "#7F77DD" },
   ];
 
@@ -76,7 +77,7 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="w-full md:w-[58%] flex flex-col"
+            className="w-full md:w-[50%] flex flex-col"
           >
             <SectionLabel text="ABOUT ME" />
 
@@ -97,23 +98,20 @@ export default function About() {
                 className="text-text-2"
                 style={{ fontSize: "16px", lineHeight: 1.75 }}
               >
-                I&apos;m a developer based in Algeria, driven by one question:
+                I&apos;m a full stack developer based in Algeria, driven by one question:
                 what happens when great engineering meets intelligent systems?
               </p>
               <p
                 className="text-text-2"
                 style={{ fontSize: "16px", lineHeight: 1.75 }}
               >
-                I build across the full stack — from pixel-perfect React
-                interfaces to Python backends and machine learning pipelines in
-                production.
+               I’m a passionate builder dedicated to turning ideas into impactful digital products. I focus on creating scalable solutions that help businesses streamline operations, leverage data, and bring innovative concepts to life.
               </p>
               <p
                 className="text-text-2"
                 style={{ fontSize: "16px", lineHeight: 1.75 }}
               >
-                I care about work that ships, scales, and actually solves
-                something. If you have a hard problem, I want to hear about it.
+                Driven by curiosity and a commitment to excellence, I enjoy solving complex problems and transforming them into intuitive, real-world experiences. My goal is to create technology that not only works seamlessly but also delivers meaningful value and lasting impact.
               </p>
             </div>
 
@@ -131,14 +129,54 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* RIGHT COLUMN — Stats Grid */}
+          {/* RIGHT COLUMN — Photo & Stats Grid */}
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
             variants={containerVariants}
-            className="w-full md:w-[42%]"
+            className="w-full md:w-[50%] flex flex-col gap-10"
           >
+            {/* Animated Photo Container */}
+            <motion.div 
+              variants={itemVariants}
+              className="relative w-full max-w-[360px] aspect-square mx-auto lg:mx-0 group"
+            >
+              {/* Continuous Floating & Rotating Animation */}
+              <motion.div
+                animate={{ 
+                  y: [0, -12, 0],
+                  rotate: [0, 2, -2, 0] 
+                }}
+                transition={{ 
+                  duration: 6, 
+                  repeat: Infinity, 
+                  ease: "easeInOut" 
+                }}
+                className="w-full h-full relative z-10"
+              >
+                {/* Decorative Glowing Backdrop */}
+                <div className="absolute inset-0 bg-accent/20 rounded-2xl blur-xl group-hover:bg-accent/30 transition-colors duration-500 -z-10" />
+                
+                {/* Offset Rotating Border Graphic */}
+                <div className="absolute inset-0 border border-accent/40 rounded-2xl transform rotate-6 group-hover:rotate-12 transition-transform duration-500 z-0" />
+                <div className="absolute inset-0 border border-[#1D9E75]/40 rounded-2xl transform -rotate-3 group-hover:-rotate-6 transition-transform duration-500 z-0" />
+
+                {/* Main Photo Box */}
+                <div className="w-full h-full bg-[#0A0A0F] border border-[#2A2A38] rounded-2xl flex items-center justify-center overflow-hidden relative z-10 group-hover:border-accent/50 transition-colors duration-500">
+                  <Image 
+                    src="/images/IMG_20260320_004003_009.jpg" 
+                    alt="Hamaidi Abderrahmane" 
+                    width={600} 
+                    height={600}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    priority
+                  />
+                </div>
+              </motion.div>
+            </motion.div>
+
+            {/* Stats Grid */}
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
