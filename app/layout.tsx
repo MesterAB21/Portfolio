@@ -26,6 +26,14 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Hamaidi Abderrahmane — Full-Stack Developer · Data Scientist · AI Engineer",
   description: "Portfolio of Hamaidi Abderrahmane, a full-stack developer, data scientist, and AI automation engineer based in Algeria.",
+  icons: {
+    icon: [
+      { url: '/icon.png', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-icon.png', type: 'image/png' },
+    ],
+  },
   openGraph: {
     title: "Hamaidi Abderrahmane — Full-Stack Developer · Data Scientist · AI Engineer",
     description: "Portfolio of Hamaidi Abderrahmane, a full-stack developer, data scientist, and AI automation engineer based in Algeria.",
